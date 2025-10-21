@@ -6,14 +6,14 @@
   <title>Safa Ayari — AI · Data Science · MLOps</title>
   <meta name="description" content="Safa Ayari — dark velvet portfolio with rose accents. AI/NLP, Data Science and MLOps projects." />
 
-  <!-- Open Graph / Twitter -->
+  
   <meta property="og:title" content="Safa Ayari — AI · Data Science · MLOps" />
   <meta property="og:description" content="Dark velvet portfolio with rose accents — AI/NLP, Data Science & MLOps projects by Safa Ayari." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Icons -->
+  
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -31,7 +31,7 @@
       --panel:#13121a;
       --text:#ece7ee;
       --muted:#bfb3c2;
-      --rose:#d8a89c;      /* soft rose */
+      --rose:#d8a89c;      
       --rose-deep:#b68174;
       --rose-dim:rgba(216,168,156,.2);
       --glow: 0 12px 40px rgba(216,168,156,.18);
@@ -49,7 +49,7 @@
     }
     h1,h2,h3{font-family:"Cormorant Garamond", serif; letter-spacing:.3px}
 
-    /* Header */
+    
     .header{position:sticky;top:0;z-index:50;background:linear-gradient(to bottom, rgba(12,12,16,.75), rgba(12,12,16,.35)); backdrop-filter:saturate(140%) blur(10px); border-bottom:var(--border)}
     .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
@@ -66,12 +66,12 @@
       .links.open{display:flex;position:absolute;right:20px;top:62px;background:var(--panel);border:var(--border);border-radius:12px;padding:10px;flex-direction:column;gap:10px;box-shadow:var(--glow)}
     }
 
-    /* Buttons */
+    
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text)}
     .btn.primary{border-color:var(--rose); background: linear-gradient(135deg, rgba(216,168,156,.22), rgba(216,168,156,.08)); box-shadow: var(--glow);}
     .btn.cv{border-color:var(--rose)}
 
-    /* Hero */
+    
     .hero{position:relative; overflow:hidden}
     #hero-wrap{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;padding:110px 20px 80px}
     .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -80,7 +80,7 @@
     .lead{color:var(--muted); max-width:60ch}
     .actions{display:flex;gap:12px;flex-wrap:wrap; margin-top:12px}
 
-    /* Animated background (canvas + aurora) */
+    
     .aurora{position:absolute;inset:-15% -10% -10% -10%; z-index:-2; background:
       radial-gradient(40% 30% at 20% 20%, rgba(216,168,156,.14), transparent 60%),
       radial-gradient(35% 25% at 80% 10%, rgba(216,168,156,.10), transparent 60%),
@@ -91,26 +91,29 @@
     @keyframes drift { from{transform:translateY(-10px)} to{transform:translateY(14px)} }
     #mlbg{position:absolute; inset:0; z-index:-1; opacity:.35}
 
-    /* Sections */
+    
     section{max-width:var(--maxw);margin:0 auto;padding:70px 20px; border-top:1px solid rgba(255,255,255,.06)}
 
-    /* About */
+    
     .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}
-    .about .photo{aspect-ratio:4/5;border-radius:var(--radius);background:linear-gradient(145deg, rgba(216,168,156,.15), rgba(216,168,156,.05));border:var(--border);box-shadow:var(--glow);display:grid;place-items:center;font-weight:800;font-size:44px;color:#1b1412}
+    .about .photo{aspect-ratio:4/5;border-radius:var(--radius);background:linear-gradient(145deg, rgba(216,168,156,.15), rgba(216,168,156,.05));border:var(--border);box-shadow:var(--glow);display:grid;place-items:center;font-weight:800;font-size:44px;color:#1b1412;  background-image: url('assets/safa.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;}
 
     .chip{background:rgba(255,255,255,.05);border:var(--border);border-radius:12px;padding:10px 12px}
     .info-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px 18px;margin-top:18px}
 
-    /* Skills */
+    
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
     .skill{display:flex;align-items:center;gap:12px;background:var(--panel);border:var(--border);border-radius:14px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
 
-    /* Education */
+    
     .edu-card{background:var(--panel);border:var(--border);border-radius:18px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;box-shadow:0 8px 28px rgba(0,0,0,.25)}
     .edu-left{display:flex;align-items:center;gap:12px}
     .edu-logo{width:38px;height:38px;border-radius:10px;object-fit:cover;border:var(--border);background:#1b1412}
 
-    /* Projects */
+    
     .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
     .card{position:relative;overflow:hidden;border-radius:20px;background:#0f0f16;min-height:240px;border:var(--border);box-shadow:0 12px 30px rgba(0,0,0,.55)}
     .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(6%) contrast(1.08) brightness(.9);transition:transform .5s ease, filter .5s ease;background:linear-gradient(145deg,#19171f,#15141c)}
@@ -124,7 +127,7 @@
     .pill p{margin:0 0 10px;color:#dcd0d4}
     .code-btn{display:inline-flex;text-decoration:none;border:1px solid var(--rose);color:#f8eef0;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg, rgba(216,168,156,.22), rgba(216,168,156,.08));font-weight:600}
 
-    /* Experience: alternating timeline */
+    
     .exp-wrap{position:relative}
     .exp-wrap:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(var(--rose), transparent)}
     .exp-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -142,7 +145,7 @@
       .exp-card:after{left:-26px}
     }
 
-    /* Footer */
+    
     footer{background:rgba(255,255,255,.03);border-top:var(--border)}
     .footer-grid{max-width:var(--maxw);margin:0 auto;padding:40px 20px;display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:24px}
     .sml{color:var(--muted)}
@@ -153,14 +156,14 @@
     .circle:hover{border-color:var(--rose)}
     .copy{max-width:var(--maxw);margin:0 auto;padding:14px 20px 36px;color:var(--muted)}
 
-    /* Reveal */
+    
     .reveal{opacity:0; transform: translateY(12px); transition:.6s ease}
     .reveal.in{opacity:1; transform:none}
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  
   <header class="header" aria-label="Primary">
     <nav class="nav">
       <a class="brand" href="#home" aria-label="Home">
@@ -181,7 +184,7 @@
     </nav>
   </header>
 
-  <!-- Hero -->
+  
   <section id="home" class="hero">
     <div class="aurora"></div>
     <canvas id="mlbg"></canvas>
@@ -196,13 +199,13 @@
           <a class="btn cv" href="assets/cv.pdf" download>Download CV</a>
         </div>
       </div>
-      <div class="about photo" aria-label="Safa portrait placeholder" style="align-self:center;display:grid;place-items:center">SA</div>
+      <div class="about photo" aria-label="Safa portrait" style="align-self:center;display:grid;place-items:center"></div>
     </div>
   </section>
 
-  <!-- About -->
+  
   <section id="about" class="about reveal">
-    <div class="photo" aria-label="Safa portrait placeholder">SA</div>
+    <div class="photo" aria-label="Safa portrait"></div>
     <div class="content">
       <h2>About me</h2>
       <p>I am <strong>Safa Ayari</strong>, a product‑minded DS/DE student. I care about reliability and user value as much as SOTA metrics. I love NLP, time series, and clean MLOps.</p>
@@ -214,7 +217,7 @@
     </div>
   </section>
 
-  <!-- Skills -->
+  
   <section id="skills" class="reveal">
     <h2>Skills & Abilities</h2>
     <p class="sml">A concise set of tools I use to turn ideas into reliable products.</p>
@@ -230,7 +233,7 @@
     </div>
   </section>
 
-  <!-- Education -->
+  
   <section id="education" class="reveal">
     <h2>Education</h2>
     <div class="edu-card">
@@ -253,7 +256,7 @@
     </div>
   </section>
 
-  <!-- Projects -->
+  
   <section id="projects" class="reveal">
     <h2>Projects</h2>
     <p class="sml">Hover a card to preview. Click <code>code &lt;/&gt;</code> to open the repository.</p>
@@ -380,7 +383,7 @@
     </div>
   </section>
 
-  <!-- Experience -->
+  
   <section id="experience" class="reveal">
     <h2>Experience</h2>
     <div class="exp-wrap">
@@ -419,7 +422,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  
   <footer role="contentinfo">
     <div class="footer-grid">
       <div>
@@ -451,26 +454,26 @@
   </footer>
 
   <script>
-    // Mobile hamburger toggle
+   
     const hamb=document.querySelector('.hamb');
     const navlinks=document.getElementById('navlinks');
     if(hamb){ hamb.addEventListener('click', ()=>{ const open=navlinks.classList.toggle('open'); hamb.setAttribute('aria-expanded', open?'true':'false'); }); }
 
-    // Intersection reveal
+    
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold:.15 });
     document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
 
-    // Timeline delay
+    
     const tl = document.querySelector('.exp-row');
     const items = tl ? [...tl.querySelectorAll('.exp-card')] : [];
     items.forEach((it,i)=> it.style.transitionDelay=(i*90)+'ms');
 
-    // Year
+    
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // === Animated ML/NLP canvas in hero ===
+    
     (function(){
       const hero = document.getElementById('home');
       const c = document.getElementById('mlbg');
@@ -485,12 +488,12 @@
 
       function step(){
         ctx.clearRect(0,0,w,h);
-        // nodes
+       
         for(const n of nodes){ n.x+=n.vx; n.y+=n.vy; if(n.x<0||n.x>w) n.vx*=-1; if(n.y<0||n.y>h) n.vy*=-1; }
-        // lines
+        
         ctx.globalAlpha=.7; ctx.lineWidth=1; ctx.strokeStyle='rgba(216,168,156,.35)';
         for(let i=0;i<N;i++) for(let j=i+1;j<N;j++){ const a=nodes[i], b=nodes[j]; const dx=a.x-b.x, dy=a.y-b.y, d=dx*dx+dy*dy; if(d<120*120){ ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); } }
-        // words
+        
         ctx.globalAlpha=1; ctx.fillStyle='rgba(255,230,225,.75)'; ctx.font='700 26px Inter, ui-sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
         words.forEach(f=>{ f.x+=f.vx*f.dir; if(f.x<-30||f.x>w+30){ f.dir*=-1; } ctx.fillText(f.t, f.x, f.y); });
         requestAnimationFrame(step);
