@@ -6,14 +6,14 @@
   <title>Safa Ayari — AI · Data Science · MLOps</title>
   <meta name="description" content="Safa Ayari — dark velvet portfolio with rose accents. AI/NLP, Data Science and MLOps projects." />
 
-  
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Safa Ayari — AI · Data Science · MLOps" />
   <meta property="og:description" content="Dark velvet portfolio with rose accents — AI/NLP, Data Science & MLOps projects by Safa Ayari." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  
+  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -29,14 +29,14 @@
       --bg:#0b0b10;
       --bg2:#0f0e14;
       --panel:#13121a;
-      --text:#ece7ee;
-      --muted:#bfb3c2;
-      --rose:#d8a89c;      
+      --text:#efeaf0;
+      --muted:#d3c7d0;
+      --rose:#d8a89c;
       --rose-deep:#b68174;
-      --rose-dim:rgba(216,168,156,.2);
+      --rose-dim:rgba(216,168,156,.20);
       --glow: 0 12px 40px rgba(216,168,156,.18);
       --glass: rgba(255,255,255,.04);
-      --border: 1px solid rgba(255,255,255,.08);
+      --border: 1px solid rgba(255,255,255,.10);
       --radius: 20px;
       --maxw: 1120px;
     }
@@ -44,19 +44,36 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0; color:var(--text); background: radial-gradient(1200px 900px at -10% -20%, rgba(216,168,156,.08), transparent 60%), linear-gradient(180deg,var(--bg),var(--bg2) 50%, #0b0b10);
+      margin:0; color:var(--text);
+      background: radial-gradient(1200px 900px at -10% -20%, rgba(216,168,156,.08), transparent 60%), linear-gradient(180deg,var(--bg),var(--bg2) 50%, #0b0b10);
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; line-height:1.6;
+      min-height:100vh;
     }
     h1,h2,h3{font-family:"Cormorant Garamond", serif; letter-spacing:.3px}
 
-    
+    /* ===== Global background animation (fixed across whole page) ===== */
+    #mlbg{
+      position:fixed; inset:0; z-index:-2; opacity:.35; pointer-events:none;
+    }
+    .aurora{
+      position:fixed; inset:-15% -10% -10% -10%; z-index:-3;
+      background:
+        radial-gradient(40% 30% at 20% 20%, rgba(216,168,156,.14), transparent 60%),
+        radial-gradient(35% 25% at 80% 10%, rgba(216,168,156,.10), transparent 60%),
+        radial-gradient(40% 30% at 70% 80%, rgba(216,168,156,.12), transparent 60%);
+      filter: blur(40px);
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    @keyframes drift { from{transform:translateY(-10px)} to{transform:translateY(14px)} }
+
+    /* ===== Header / Nav ===== */
     .header{position:sticky;top:0;z-index:50;background:linear-gradient(to bottom, rgba(12,12,16,.75), rgba(12,12,16,.35)); backdrop-filter:saturate(140%) blur(10px); border-bottom:var(--border)}
     .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
     .logo{width:34px;height:34px;border-radius:999px;display:grid;place-items:center;font-weight:800;font-size:14px;background:linear-gradient(145deg, var(--rose), var(--rose-deep));color:#1b1412;box-shadow:var(--glow)}
     .links{display:flex;gap:16px;align-items:center}
-    .links a{color:var(--text);text-decoration:none;opacity:.9;padding:8px 10px;border-radius:10px}
-    .links a:hover{background:var(--glass)}
+    .links a{color:var(--text);text-decoration:none;opacity:.92;padding:8px 10px;border-radius:10px}
+    .links a:hover{background:var(--glass);opacity:1}
     .cta{border:1px solid var(--rose); padding:8px 14px; border-radius:999px !important;}
     .hamb{display:none;width:40px;height:34px;border:var(--border);background:var(--glass);border-radius:10px;align-items:center;justify-content:center;gap:4px}
     .hamb span{display:block;width:20px;height:2px;background:currentColor}
@@ -66,65 +83,59 @@
       .links.open{display:flex;position:absolute;right:20px;top:62px;background:var(--panel);border:var(--border);border-radius:12px;padding:10px;flex-direction:column;gap:10px;box-shadow:var(--glow)}
     }
 
-    
+    /* ===== Buttons ===== */
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text)}
+    .btn:hover{border-color:rgba(255,255,255,.22); background:rgba(255,255,255,.055)}
     .btn.primary{border-color:var(--rose); background: linear-gradient(135deg, rgba(216,168,156,.22), rgba(216,168,156,.08)); box-shadow: var(--glow);}
     .btn.cv{border-color:var(--rose)}
 
-    
-    .hero{position:relative; overflow:hidden}
-    #hero-wrap{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;padding:110px 20px 80px}
+    /* ===== Sections ===== */
+    section{max-width:var(--maxw);margin:0 auto;padding:70px 20px; border-top:1px solid rgba(255,255,255,.06)}
+
+    /* ===== Hero (full-width text, no portrait) ===== */
+    .hero{position:relative}
+    #hero-wrap{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:110px 20px 80px}
     .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
     .title{font-size:clamp(42px,5.4vw,84px); line-height:1.06; margin:10px 0 14px}
     .accent{background:linear-gradient(90deg,var(--rose),#e3c3b7); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 0 24px rgba(216,168,156,.3)}
-    .lead{color:var(--muted); max-width:60ch}
+    .lead{color:var(--muted); max-width:64ch}
     .actions{display:flex;gap:12px;flex-wrap:wrap; margin-top:12px}
 
-    
-    .aurora{position:absolute;inset:-15% -10% -10% -10%; z-index:-2; background:
-      radial-gradient(40% 30% at 20% 20%, rgba(216,168,156,.14), transparent 60%),
-      radial-gradient(35% 25% at 80% 10%, rgba(216,168,156,.10), transparent 60%),
-      radial-gradient(40% 30% at 70% 80%, rgba(216,168,156,.12), transparent 60%);
-      filter: blur(40px);
-      animation: drift 18s ease-in-out infinite alternate;
-    }
-    @keyframes drift { from{transform:translateY(-10px)} to{transform:translateY(14px)} }
-    #mlbg{position:absolute; inset:0; z-index:-1; opacity:.35}
-
-    
-    section{max-width:var(--maxw);margin:0 auto;padding:70px 20px; border-top:1px solid rgba(255,255,255,.06)}
-
-    
+    /* ===== About (with portrait) ===== */
     .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}
-.photo{
-  aspect-ratio:4/5;
-  border-radius:var(--radius);
-  background:linear-gradient(145deg, rgba(216,168,156,.15), rgba(216,168,156,.05));
-  border:var(--border);
-  box-shadow:var(--glow);
-  display:grid;place-items:center;font-weight:800;font-size:44px;color:#1b1412;
-  background-image:url('assets/safa.png');
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-}
+    @media(max-width:900px){ .about{grid-template-columns:1fr} }
+    .photo{
+      aspect-ratio:4/5;border-radius:var(--radius);
+      background:linear-gradient(145deg, rgba(216,168,156,.15), rgba(216,168,156,.05));
+      border:var(--border);box-shadow:var(--glow);
+      display:grid;place-items:center;font-weight:800;font-size:44px;color:#1b1412;
+      background-image:url('assets/safa.png');
+      background-size:cover;background-position:center;background-repeat:no-repeat;
+    }
 
-    .chip{background:rgba(255,255,255,.05);border:var(--border);border-radius:12px;padding:10px 12px}
-    .info-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px 18px;margin-top:18px}
-
-    
+    /* ===== Base skills grid (kept for older items if needed) ===== */
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
     .skill{display:flex;align-items:center;gap:12px;background:var(--panel);border:var(--border);border-radius:14px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
 
-    
+    /* ===== New pills skills ===== */
+    .subtle { color: var(--muted); font-weight:600; letter-spacing:.06em; text-transform:uppercase; font-size:12px; margin:26px 0 10px; }
+    .pills { display:flex; flex-wrap:wrap; gap:10px; }
+    .pill-skill { background:var(--panel); border:var(--border); border-radius:12px; padding:8px 12px; box-shadow:0 6px 18px rgba(0,0,0,.22); }
+
+    /* ===== Typewriter ===== */
+    .typer { white-space:nowrap; display:inline-flex; align-items:center; }
+    .typer .cursor { display:inline-block; width:1ch; margin-left:2px; animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity:0; } }
+
+    /* ===== Education ===== */
     .edu-card{background:var(--panel);border:var(--border);border-radius:18px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;box-shadow:0 8px 28px rgba(0,0,0,.25)}
     .edu-left{display:flex;align-items:center;gap:12px}
     .edu-logo{width:38px;height:38px;border-radius:10px;object-fit:cover;border:var(--border);background:#1b1412}
 
-    
+    /* ===== Projects ===== */
     .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
     .card{position:relative;overflow:hidden;border-radius:20px;background:#0f0f16;min-height:240px;border:var(--border);box-shadow:0 12px 30px rgba(0,0,0,.55)}
-    .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(6%) contrast(1.08) brightness(.9);transition:transform .5s ease, filter .5s ease;background:linear-gradient(145deg,#19171f,#15141c)}
+    .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(6%) contrast(1.08) brightness(.92);transition:transform .5s ease, filter .5s ease;background:linear-gradient(145deg,#19171f,#15141c)}
     .card:hover img{transform:scale(1.06)}
     .tagbar{position:absolute;top:12px;left:12px;display:flex;gap:6px}
     .tag{font-size:12px;padding:4px 8px;border-radius:999px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.18)}
@@ -132,10 +143,10 @@
     .card:hover .label{transform:translateY(-64px)}
     .pill{position:absolute;left:16px;right:16px;bottom:18px;border-radius:16px;background:linear-gradient(145deg, rgba(19,18,26,.92), rgba(19,18,26,.82));padding:14px 16px;border:1px solid rgba(255,255,255,.08);box-shadow:0 12px 30px rgba(0,0,0,.6);opacity:0;transform:translateY(12px);transition:.35s ease}
     .card:hover .pill{opacity:1;transform:none}
-    .pill p{margin:0 0 10px;color:#dcd0d4}
+    .pill p{margin:0 0 10px;color:#e9dde1}
     .code-btn{display:inline-flex;text-decoration:none;border:1px solid var(--rose);color:#f8eef0;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg, rgba(216,168,156,.22), rgba(216,168,156,.08));font-weight:600}
 
-    
+    /* ===== Experience (timeline) ===== */
     .exp-wrap{position:relative}
     .exp-wrap:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(var(--rose), transparent)}
     .exp-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -153,25 +164,30 @@
       .exp-card:after{left:-26px}
     }
 
-    
+    /* ===== Footer ===== */
     footer{background:rgba(255,255,255,.03);border-top:var(--border)}
     .footer-grid{max-width:var(--maxw);margin:0 auto;padding:40px 20px;display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:24px}
+    @media(max-width:900px){ .footer-grid{grid-template-columns:1fr} }
     .sml{color:var(--muted)}
-    .foot-links a{display:block;color:var(--text);text-decoration:none;opacity:.85;margin-bottom:8px}
+    .foot-links a{display:block;color:var(--text);text-decoration:none;opacity:.9;margin-bottom:8px}
     .foot-links a:hover{opacity:1}
     .social-row{display:flex;gap:10px;margin-top:10px}
     .circle{width:32px;height:32px;border-radius:999px;display:grid;place-items:center;background:rgba(255,255,255,.05);border:var(--border);text-decoration:none}
     .circle:hover{border-color:var(--rose)}
     .copy{max-width:var(--maxw);margin:0 auto;padding:14px 20px 36px;color:var(--muted)}
 
-    
+    /* ===== Reveal on scroll ===== */
     .reveal{opacity:0; transform: translateY(12px); transition:.6s ease}
     .reveal.in{opacity:1; transform:none}
   </style>
 </head>
 <body>
 
-  
+  <!-- Background layers (global) -->
+  <canvas id="mlbg" aria-hidden="true"></canvas>
+  <div class="aurora" aria-hidden="true"></div>
+
+  <!-- Header -->
   <header class="header" aria-label="Primary">
     <nav class="nav">
       <a class="brand" href="#home" aria-label="Home">
@@ -192,56 +208,135 @@
     </nav>
   </header>
 
-  
+  <!-- Hero (text only) -->
   <section id="home" class="hero">
-    <div class="aurora"></div>
-    <canvas id="mlbg"></canvas>
     <div id="hero-wrap">
       <div>
         <div class="kicker">DATA · NLP · CLOUD</div>
-        <h1 class="title">I’m Safa — <span class="accent">shipping intelligence</span> with taste.</h1>
-        <p class="lead">Data Scientist & Data Engineering student focused on elegant, measurable, production-grade AI.</p>
-        <div class="actions">
+        <h1 class="title">Hi, I’m Safa — welcome to my portfolio.</h1>
+        <p class="lead">
+          I build data products that are elegant, measurable, and ready for production.
+          <br/>
+          <span class="typer">
+            I ship&nbsp;<strong id="typer-word">production-grade AI</strong><span class="cursor">|</span>
+          </span>
+        </p>
+        <div class="actions" style="margin-top:18px">
           <a class="btn primary" href="#projects">See projects</a>
           <a class="btn" href="#about">About me</a>
           <a class="btn cv" href="assets/cv.pdf" download>Download CV</a>
         </div>
       </div>
-      <div class="about photo" aria-label="Safa portrait" style="align-self:center;display:grid;place-items:center"></div>
     </div>
   </section>
 
-  
+  <!-- About (with portrait) -->
   <section id="about" class="about reveal">
     <div class="photo" aria-label="Safa portrait"></div>
     <div class="content">
       <h2>About me</h2>
-      <p>I am <strong>Safa Ayari</strong>, a product‑minded DS/DE student. I care about reliability and user value as much as SOTA metrics. I love NLP, time series, and clean MLOps.</p>
-      <div class="info-list">
+      <p>
+        I’m <strong>Safa Ayari</strong>, a product-minded Data Scientist / Data Engineer focused on
+        reliability, observability, and user value — not just SOTA metrics. I like turning messy data
+        into clean services with solid MLOps (tests, CI/CD, monitoring) and shipping fast without
+        breaking trust.
+      </p>
+      <ul style="margin:0; padding-left:18px">
+        <li> NLP & time series that solve real problems</li>
+        <li> Practical MLOps: containers, CI/CD, tracing & dashboards</li>
+        <li> Clear dashboards &  web UIs (Flask/Django/Streamlit/Angular)</li>
+        <li> Full-stack Websites and applications (Spring/Angular/Node.js/etc)</li>
+         <li> and more</li>
+      </ul>
+      <div class="info-list" style="margin-top:18px">
         <div class="chip"><strong>Email:</strong> <a href="mailto:sapaayari@gmail.com">sapaayari@gmail.com</a></div>
-        <div class="chip"><strong>Address:</strong> Paris, France</div>
+        <div class="chip"><strong>Based in:</strong> Paris, France</div>
         <div class="chip"><strong>Open to:</strong> Internship · Apprenticeship</div>
       </div>
     </div>
   </section>
 
-  
+  <!-- Skills -->
   <section id="skills" class="reveal">
     <h2>Skills & Abilities</h2>
-    <p class="sml">A concise set of tools I use to turn ideas into reliable products.</p>
-    <div class="skills-grid">
-      <div class="skill">🐍 Python</div>
-      <div class="skill">🧠 PyTorch</div>
-      <div class="skill">🔡 NLP · RAG</div>
-      <div class="skill">📦 Docker</div>
-      <div class="skill">☁️ Azure · AKS</div>
-      <div class="skill">📊 Power BI</div>
-      <div class="skill">⚙️ GitLab CI/CD</div>
-      <div class="skill">🗄️ SQL · PL/SQL</div>
+    <p class="sml">The tools I use to turn ideas into reliable products.</p>
+
+    <div class="subtle">Data Science</div>
+    <div class="pills">
+      <span class="pill-skill">Machine Learning</span>
+      <span class="pill-skill">Deep Learning</span>
+      <span class="pill-skill">NLP · Transformers (BERT, CamemBERT)</span>
+      <span class="pill-skill">Time Series</span>
+      <span class="pill-skill">Scikit-learn</span>
+      <span class="pill-skill">PyTorch</span>
+      <span class="pill-skill">Keras</span>
+      <span class="pill-skill">TensorFlow</span>
+      <span class="pill-skill">Matplotlib</span>
+      <span class="pill-skill">Seaborn</span>
+    </div>
+
+    <div class="subtle">Programming</div>
+    <div class="pills">
+      <span class="pill-skill">Python</span>
+      <span class="pill-skill">R</span>
+      <span class="pill-skill">JavaScript</span>
+      <span class="pill-skill">SQL</span>
+      <span class="pill-skill">Java</span>
+      <span class="pill-skill">PHP</span>
+      <span class="pill-skill">C#</span>
+    </div>
+
+    <div class="subtle">Cloud & DevOps</div>
+    <div class="pills">
+      <span class="pill-skill">Azure</span>
+      <span class="pill-skill">AWS</span>
+      <span class="pill-skill">Docker</span>
+      <span class="pill-skill">Kubernetes</span>
+      <span class="pill-skill">GitLab CI/CD</span>
+      <span class="pill-skill">Jenkins</span>
+    </div>
+
+    <div class="subtle">Frameworks</div>
+    <div class="pills">
+      <span class="pill-skill">Django</span>
+      <span class="pill-skill">Flask</span>
+      <span class="pill-skill">Dash · Plotly</span>
+      <span class="pill-skill">Streamlit</span>
+      <span class="pill-skill">Spring Boot</span>
+      <span class="pill-skill">Angular</span>
+    </div>
+
+    <div class="subtle">Data & BI</div>
+    <div class="pills">
+      <span class="pill-skill">Power BI</span>
+      <span class="pill-skill">Tableau</span>
+      <span class="pill-skill">Excel</span>
+      <span class="pill-skill">SAS</span>
+      <span class="pill-skill">DAX</span>
+    </div>
+
+    <div class="subtle">Databases</div>
+    <div class="pills">
+      <span class="pill-skill">PostgreSQL</span>
+      <span class="pill-skill">PL/SQL</span>
+      <span class="pill-skill">NoSQL</span>
+    </div>
+
+    <div class="subtle">Tools & Big Data</div>
+    <div class="pills">
+      <span class="pill-skill">Git</span>
+      <span class="pill-skill">Apache Spark</span>
+      <span class="pill-skill">Hadoop</span>
+      <span class="pill-skill">JIRA</span>
+    </div>
+
+    <div class="subtle">Project Management</div>
+    <div class="pills">
+      <span class="pill-skill">Agile · Scrum</span>
     </div>
   </section>
 
-  
+  <!-- Education -->
   <section id="education" class="reveal">
     <h2>Education</h2>
     <div class="edu-card">
@@ -264,7 +359,7 @@
     </div>
   </section>
 
-  
+  <!-- Projects -->
   <section id="projects" class="reveal">
     <h2>Projects</h2>
     <p class="sml">Hover a card to preview. Click <code>code &lt;/&gt;</code> to open the repository.</p>
@@ -274,7 +369,7 @@
         <div class="tagbar"><span class="tag">CV</span><span class="tag">PyTorch</span></div>
         <div class="label">Dog Emotion CNN</div>
         <div class="pill">
-          <p>EfficientNet fine‑tune with mixup/CutOut, TTA, and calibration.</p>
+          <p>EfficientNet fine-tune with mixup/CutOut, TTA, and calibration.</p>
           <a class="code-btn" href="https://github.com/taf-sa/Dog-Emotion" target="_blank" rel="noopener">code &lt;/&gt;</a>
         </div>
       </article>
@@ -284,7 +379,7 @@
         <div class="tagbar"><span class="tag">CV</span><span class="tag">OpenCV</span></div>
         <div class="label">EmotionLens </div>
         <div class="pill">
-          <p>Real‑time emotion recognition from webcam or images.</p>
+          <p>Real-time emotion recognition from webcam or images.</p>
           <a class="code-btn" href="https://github.com/taf-sa/EmotionLens" target="_blank" rel="noopener">code &lt;/&gt;</a>
         </div>
       </article>
@@ -305,14 +400,14 @@
         <div class="label">Cp/Cpk Statistical Model</div>
         <div class="pill">
           <p>Capability indices with robust estimators & visualization.</p>
-          <a class="code-btn" href="https://github.com/SafaAyari/cp-cpk-model" target="_blank" rel="noopener">code &lt;/&gt;</a>
+          <a class="code-btn" href="https://github.com/taf-sa/Cp-Cpk-Statistical-Model" target="_blank" rel="noopener">code &lt;/&gt;</a>
         </div>
       </article>
 
       <article class="card">
         <img alt="Black-Scholes" src="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1600&auto=format&fit=crop"/>
         <div class="tagbar"><span class="tag">Finance</span><span class="tag">DL</span></div>
-        <div class="label">Black‑Scholes Model (Reproduction)</div>
+        <div class="label">Black-Scholes Model (Reproduction)</div>
         <div class="pill">
           <p>Option pricing via RNNs; Django UI & evaluation vs analytical.</p>
           <a class="code-btn" href="https://github.com/SafaAyari/black-scholes-rnn" target="_blank" rel="noopener">code &lt;/&gt;</a>
@@ -344,7 +439,7 @@
         <div class="tagbar"><span class="tag">Finance</span><span class="tag">Dash</span></div>
         <div class="label">Trading Room (Salle de marché)</div>
         <div class="pill">
-          <p>Multi‑asset dashboards (quotes, order book, P&L) with alerts.</p>
+          <p>Multi-asset dashboards (quotes, order book, P&L) with alerts.</p>
           <a class="code-btn" href="https://github.com/SafaAyari/trading-room" target="_blank" rel="noopener">code &lt;/&gt;</a>
         </div>
       </article>
@@ -354,7 +449,7 @@
         <div class="tagbar"><span class="tag">Bash</span><span class="tag">Linux</span></div>
         <div class="label">Rename Shell Script</div>
         <div class="pill">
-          <p>Reliable batch renaming & file management; dry‑run mode.</p>
+          <p>Reliable batch renaming & file management; dry-run mode.</p>
           <a class="code-btn" href="https://github.com/SafaAyari/rename-shell" target="_blank" rel="noopener">code &lt;/&gt;</a>
         </div>
       </article>
@@ -364,7 +459,7 @@
         <div class="tagbar"><span class="tag">C</span><span class="tag">SDL</span></div>
         <div class="label">Savior — 2D Game</div>
         <div class="pill">
-          <p>Arcade‑style platformer in C using SDL for Linux.</p>
+          <p>Arcade-style platformer in C using SDL for Linux.</p>
           <a class="code-btn" href="https://github.com/taf-sa/ProjetSDL-A16Eq4" target="_blank" rel="noopener">code &lt;/&gt;</a>
         </div>
       </article>
@@ -391,7 +486,7 @@
     </div>
   </section>
 
-  
+  <!-- Experience -->
   <section id="experience" class="reveal">
     <h2>Experience</h2>
     <div class="exp-wrap">
@@ -407,7 +502,7 @@
           <p>LSTM energy forecasting (95% acc), Flask chatbot, Power BI dashboards; AKS deployment with Prometheus/Grafana; −85% manual time.</p>
         </article>
         <article class="exp-card left">
-          <h3>AI & Full‑stack Intern — BIAT</h3>
+          <h3>AI & Full-stack Intern — BIAT</h3>
           <small>May 2023 — Sep 2023 · Hybrid</small>
           <p>OCR + NLP invoice extraction (React/Node/Tesseract), GitLab CI/CD, and automated workflows; −80% processing time.</p>
         </article>
@@ -423,14 +518,14 @@
         </article>
         <article class="exp-card right">
           <h3>UI/UX & DevOps Intern — ATB</h3>
-          <small>May 2020 — Aug 2020 · On‑site</small>
-          <p>Remote desktop management platform; Bash automation & syslog alerts; −60% on‑site interventions.</p>
+          <small>May 2020 — Aug 2020 · On-site</small>
+          <p>Remote desktop management platform; Bash automation & syslog alerts; −60% on-site interventions.</p>
         </article>
       </div>
     </div>
   </section>
 
-  
+  <!-- Footer -->
   <footer role="contentinfo">
     <div class="footer-grid">
       <div>
@@ -462,48 +557,102 @@
   </footer>
 
   <script>
-   
+    /* Nav hamburger */
     const hamb=document.querySelector('.hamb');
     const navlinks=document.getElementById('navlinks');
     if(hamb){ hamb.addEventListener('click', ()=>{ const open=navlinks.classList.toggle('open'); hamb.setAttribute('aria-expanded', open?'true':'false'); }); }
 
-    
+    /* Reveal on scroll */
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold:.15 });
     document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
 
-    
+    /* Experience stagger */
     const tl = document.querySelector('.exp-row');
     const items = tl ? [...tl.querySelectorAll('.exp-card')] : [];
     items.forEach((it,i)=> it.style.transitionDelay=(i*90)+'ms');
 
-    
+    /* Footer year */
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    
+    /* Typewriter rotating words in hero */
     (function(){
-      const hero = document.getElementById('home');
+      const words = [
+        "production-grade AI",
+        "reliable MLOps",
+        "clean NLP",
+        "smart time series"
+      ];
+      const el = document.getElementById('typer-word');
+      if(!el) return;
+
+      const speed = 55;      // typing speed
+      const pause = 1100;    // pause when word completed
+      let i = 0, j = 0, dir = 1; // dir: 1 typing, -1 deleting
+
+      function tick(){
+        const w = words[i];
+        j += dir;
+        el.textContent = w.slice(0, j);
+
+        if (dir === 1 && j === w.length){ setTimeout(()=>{ dir = -1; }, pause); }
+        else if (dir === -1 && j === 0){
+          i = (i + 1) % words.length;
+          dir = 1;
+        }
+        requestAnimationFrame(()=> setTimeout(tick, speed));
+      }
+      tick();
+    })();
+
+    /* Global background animation (fixed) */
+    (function(){
       const c = document.getElementById('mlbg');
       const ctx = c.getContext('2d');
       let w,h, px=window.devicePixelRatio||1;
-      function resize(){ w=hero.clientWidth; h=hero.clientHeight; c.width=w*px; c.height=h*px; c.style.width=w+'px'; c.style.height=h+'px'; ctx.setTransform(px,0,0,px,0,0); }
+
+      function resize(){
+        w = window.innerWidth; h = window.innerHeight;
+        c.width = w*px; c.height = h*px;
+        c.style.width = w+'px'; c.style.height = h+'px';
+        ctx.setTransform(px,0,0,px,0,0);
+      }
       resize(); addEventListener('resize', resize);
 
-      const N=42, nodes=[];
-      for(let i=0;i<N;i++){ nodes.push({x:Math.random()*w, y:Math.random()*h, vx:(Math.random()-.5)*.5, vy:(Math.random()-.5)*.5}); }
-      const words=['AI','ML','DL','NLP'].map((t)=>({t,x:Math.random()*w,y:Math.random()*h, vx:.35+Math.random()*.35, dir:Math.random()>.5?1:-1}));
+      const N=46, nodes=[];
+      for(let i=0;i<N;i++){
+        nodes.push({x:Math.random()*w, y:Math.random()*h, vx:(Math.random()-.5)*.45, vy:(Math.random()-.5)*.45});
+      }
+      const words = ['AI','ML','DL','NLP'].map((t)=>({
+        t, x:Math.random()*w, y:Math.random()*h,
+        vx:.35+Math.random()*.35, dir:Math.random()>.5?1:-1
+      }));
 
       function step(){
         ctx.clearRect(0,0,w,h);
-       
-        for(const n of nodes){ n.x+=n.vx; n.y+=n.vy; if(n.x<0||n.x>w) n.vx*=-1; if(n.y<0||n.y>h) n.vy*=-1; }
-        
+        for(const n of nodes){
+          n.x+=n.vx; n.y+=n.vy;
+          if(n.x<0||n.x>w) n.vx*=-1;
+          if(n.y<0||n.y>h) n.vy*=-1;
+        }
         ctx.globalAlpha=.7; ctx.lineWidth=1; ctx.strokeStyle='rgba(216,168,156,.35)';
-        for(let i=0;i<N;i++) for(let j=i+1;j<N;j++){ const a=nodes[i], b=nodes[j]; const dx=a.x-b.x, dy=a.y-b.y, d=dx*dx+dy*dy; if(d<120*120){ ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); } }
-        
-        ctx.globalAlpha=1; ctx.fillStyle='rgba(255,230,225,.75)'; ctx.font='700 26px Inter, ui-sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
-        words.forEach(f=>{ f.x+=f.vx*f.dir; if(f.x<-30||f.x>w+30){ f.dir*=-1; } ctx.fillText(f.t, f.x, f.y); });
+        for(let i=0;i<N;i++){
+          for(let j=i+1;j<N;j++){
+            const a=nodes[i], b=nodes[j];
+            const dx=a.x-b.x, dy=a.y-b.y, d=dx*dx+dy*dy;
+            if(d<120*120){
+              ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+            }
+          }
+        }
+        ctx.globalAlpha=1; ctx.fillStyle='rgba(255,230,225,.75)';
+        ctx.font='700 26px Inter, ui-sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+        words.forEach(f=>{
+          f.x+=f.vx*f.dir;
+          if(f.x<-40||f.x>w+40){ f.dir*=-1; }
+          ctx.fillText(f.t, f.x, f.y);
+        });
         requestAnimationFrame(step);
       }
       step();
